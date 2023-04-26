@@ -1,20 +1,33 @@
 package Moduli;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class Agenda {
-    public String nome;
+    public static String nome;
+
+    public ArrayList<Appuntamento> appuntamenti;
 
     public Agenda(String nome) {
         this.nome = nome;
-        ArrayList<Appuntamento> appuntamenti = new ArrayList<>();
+        appuntamenti = new ArrayList<>();
     }
 
-    public Appuntamento appuntamentoAggiungi(LocalDate data, LocalTime orario, int durata, String nome, String luogo){
-        return new Appuntamento(data,orario,durata,nome,luogo);
+    public static String getNome() {
+        return nome;
     }
 
+    public ArrayList<Appuntamento> getAppuntamenti(){
+        return appuntamenti;
+    }
+
+    public void aggiungiAppuntamento(LocalDate data, String orario, int durata, String nome, String luogo){
+        Appuntamento appuntamento = new Appuntamento(data, orario, durata, nome, luogo);
+        appuntamenti.add(appuntamento);
+    }
+
+    public int dimAppuntamenti(){
+        return appuntamenti.size();
+    }
 
 }

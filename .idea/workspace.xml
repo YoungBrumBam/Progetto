@@ -5,8 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="144dde29-59e2-4268-879e-d031dfd72942" name="Changes" comment="ccdsacda">
+      <change afterPath="$PROJECT_DIR$/src/Test/Testmetodi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UI/UIagende.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UI/UIappuntamenti.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UI/UImenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Progetto.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Progetto.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Metodi/Metodi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Metodi/Metodi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Moduli/Agenda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Moduli/Agenda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Moduli/Appuntamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Moduli/Appuntamento.java" afterDir="false" />
     </list>
+    <list id="63d0cb2a-a14e-44eb-85bf-83f0dc7302bb" name="Changes by michelefilidoro" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,11 +45,102 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Downloaded.Files.Path.Enabled": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/Admin/Downloads/InterfacceGenerici"
+    "last_opened_file_path": "C:/Users/Admin/IdeaProjects/Agende"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Admin\IdeaProjects\Progetto\src\Metodi" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.Testmetodi.testAggiuntaAgenda">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Progetto" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Testmetodi.testAggiuntaAgenda" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Progetto" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Test" />
+      <option name="MAIN_CLASS_NAME" value="Test.Testmetodi" />
+      <option name="METHOD_NAME" value="testAggiuntaAgenda" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Testmetodi.testFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Progetto" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Test" />
+      <option name="MAIN_CLASS_NAME" value="Test.Testmetodi" />
+      <option name="METHOD_NAME" value="testFile" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Testmetodi.testRimuoviAgenda" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Progetto" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Test" />
+      <option name="MAIN_CLASS_NAME" value="Test.Testmetodi" />
+      <option name="METHOD_NAME" value="testRimuoviAgenda" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Testmetodi.testdimAgenda" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Progetto" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Test" />
+      <option name="MAIN_CLASS_NAME" value="Test.Testmetodi" />
+      <option name="METHOD_NAME" value="testdimAgenda" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.Testmetodi.testAggiuntaAgenda" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.Testmetodi.testFile" />
+        <item itemvalue="JUnit.Testmetodi.testdimAgenda" />
+        <item itemvalue="JUnit.Testmetodi.testRimuoviAgenda" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -56,7 +157,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681480365635</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="ccdsacda">
+      <created>1681811864248</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1681811864248</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
