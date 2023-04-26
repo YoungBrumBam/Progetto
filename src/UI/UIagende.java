@@ -9,13 +9,15 @@ import java.util.Scanner;
 public class UIagende {
     Agenda agenda;
     Metodi metodi;
+    UImenu uImenu;
     public UIagende(Metodi metodi) {
         this.metodi = metodi;
     }
 
     public void menuAgenda(){
-
+        int scelta;
         Scanner scscelta = new Scanner(System.in);
+        do {
         System.out.println("1) creare una nuova agenda vuota fornendone il nome\n" +
                 "2) cancellare un agenda anche se sono presenti appuntamentiInserire\n" +
                 "3) creare una nuova agenda leggendo gli appuntamenti da file\n" +
@@ -23,8 +25,7 @@ public class UIagende {
                 "5) stampa agende\n" +
                 "0) TORNA AL MENU PRINCIPALE\n" +
                 " scelta menu rubrica:");
-        int scelta = scscelta.nextInt();
-        do {
+        scelta = scscelta.nextInt();
             switch (scelta) {
                 case 1:
                     Scanner scnome = new Scanner(System.in);

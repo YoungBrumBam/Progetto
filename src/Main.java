@@ -1,5 +1,8 @@
 
+import UI.UIagende;
 import UI.UImenu;
+
+import java.util.ArrayList;
 
 
 public class Main {
@@ -7,9 +10,5 @@ public class Main {
 
         UImenu uImenu = new UImenu();
         uImenu.menu();
-        /*Metodi metodi = new Metodi(new ArrayList<>());
-        UIagende uIagende = new UIagende(metodi);
-
-        uIagende.menuAgenda();*/
     }
 }

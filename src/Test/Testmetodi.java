@@ -4,6 +4,7 @@ import Moduli.Agenda;
 import Moduli.Appuntamento;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
 
@@ -40,12 +41,22 @@ public class Testmetodi {
     }
 
     @Test
-    void testFile(){
+    void testFile() throws IOException {
         ArrayList<Agenda> agende = new ArrayList<>();
         Metodi metodi = new Metodi(agende);
         metodi.aggiungiAgenda("Ufficio");
         metodi.appuntamentidaFile("Ufficio");
         assertNotEquals(0,metodi.dimAppuntamenti("Ufficio"));
         metodi.stampaAppuntamenti("Ufficio");
+    }
+
+    @Test
+    void testScrivi() throws IOException{
+        ArrayList<Agenda> agende = new ArrayList<>();
+        Metodi metodi = new Metodi(agende);
+        metodi.aggiungiAgenda("Ufficio");
+        metodi.appuntamentidaFile("Ufficio");
+        metodi.aggiungiAgenda("Casa");
+        metodi.scriviAgendaFile();
     }
 }

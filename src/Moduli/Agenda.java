@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Agenda {
-    public static String nome;
+    public String nome;
 
     public ArrayList<Appuntamento> appuntamenti;
 
@@ -13,8 +13,8 @@ public class Agenda {
         appuntamenti = new ArrayList<>();
     }
 
-    public static String getNome() {
-        return nome;
+    public String getNome() {
+        return this.nome;
     }
 
     public ArrayList<Appuntamento> getAppuntamenti(){

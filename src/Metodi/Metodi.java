@@ -3,10 +3,7 @@ package Metodi;
 import Moduli.Agenda;
 import Moduli.Appuntamento;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -65,18 +62,21 @@ public class Metodi {
     public void aggiungiAgenda(String n){
         Agenda agenda = new Agenda(n);
         agende.add(agenda);
+        if(n.equals(agenda.getNome())){
+            System.out.println("Agenda aggiunta correttamente\n");
+        }
     }
 
     public void pulisciAgenda(String n){
         for(int i = 0; i < this.agende.size(); i++){
-            if(n.equals(Agenda.getNome()))
+            if(n.equals(agende.get(i).getNome()))
             {
                 Agenda agenda = this.agende.get(i);
                 this.agende.remove(agenda);
             }
         }
     }
-    public void appuntamentidaFile(String n){
+    public void appuntamentidaFile(String n) throws IOException{
         for(Agenda agenda : getAgende()) {
             if(n.equals(agenda.getNome())) {
                 try {
@@ -106,14 +106,42 @@ public class Metodi {
                     br.close();
                 } catch (FileNotFoundException fnf) {
                     System.out.println("File non aperto correttamente\n");
-                } catch (IOException e) {
-                    e.printStackTrace();
                 }
             }
             else{
                 System.out.println("Agenda non esistente\n");
 
             }
+        }
+    }
+    public void scriviAgendaFile() throws IOException {
+        int i = 0;
+        try {
+            FileWriter fw = new FileWriter("C:/Users/Admin/OneDrive/Desktop/agenda.txt", true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            if (bw == null) {
+                File agende = new File("C:/Users/Admin/OneDrive/Desktop/agenda.txt");
+            }
+            for (Agenda agenda : this.agende) {
+                bw.newLine();
+                bw.write(agenda.getNome() + "\n");
+                for(Appuntamento appuntamento : agenda.getAppuntamenti()){
+                    if(agenda.getAppuntamenti() != null) {
+                        bw.write("Data: " + appuntamento.getData() +
+                                "\tOrario: " + appuntamento.getOrario() +
+                                "\tDurata: " + appuntamento.getDurata() +
+                                "\tNome: " + appuntamento.getNome() +
+                                "\tLuogo: " + appuntamento.getLuogo() + "\n");
+                    }else{
+                        bw.write("Non ci sono appuntamenti per questa agenda\n");
+                    }
+                }
+                i++;
+            }
+            bw.flush();
+            bw.close();
+        }catch(FileNotFoundException fnf){
+            System.out.println("File non trovato");
         }
     }
 }
