@@ -1,15 +1,15 @@
 package Moduli;
 
 import java.time.LocalDate;
-import java.util.Date;
+import java.time.LocalTime;
 
 public class Appuntamento {
     public LocalDate data;
-    public String orario;
+    public LocalTime orario;
     public int durata;
     public String nome,luogo;
 
-    public Appuntamento(LocalDate data, String orario, int durata, String nome, String luogo) {
+    public Appuntamento(LocalDate data, LocalTime orario, int durata, String nome, String luogo) {
         this.data = data;
         this.orario = orario;
         this.durata = durata;
@@ -20,7 +20,7 @@ public class Appuntamento {
         return data;
     }
 
-    public String getOrario() {
+    public LocalTime getOrario() {
         return orario;
     }
 

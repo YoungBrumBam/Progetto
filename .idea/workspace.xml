@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="144dde29-59e2-4268-879e-d031dfd72942" name="Changes" comment="ccdsacda">
+      <change afterPath="$PROJECT_DIR$/appuntamenti.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Metodi/Metodi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Metodi/Metodi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Moduli/Agenda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Moduli/Agenda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Moduli/Appuntamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Moduli/Appuntamento.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Test/Testmetodi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test/Testmetodi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/UIagende.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/UIagende.java" afterDir="false" />
     </list>
     <list id="63d0cb2a-a14e-44eb-85bf-83f0dc7302bb" name="Changes by michelefilidoro" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,10 +52,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Admin\IdeaProjects\Progetto" />
       <recent name="C:\Users\Admin\IdeaProjects\Progetto\src\Metodi" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.Testmetodi.testScrivi">
+  <component name="RunManager" selected="JUnit.Testmetodi.testAggiungiapp">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Progetto" />
@@ -63,7 +64,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Testmetodi.testAggiuntaAgenda" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Testmetodi.testAggiungiapp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Progetto" />
       <extension name="coverage">
         <pattern>
@@ -73,7 +74,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="Test" />
       <option name="MAIN_CLASS_NAME" value="Test.Testmetodi" />
-      <option name="METHOD_NAME" value="testAggiuntaAgenda" />
+      <option name="METHOD_NAME" value="testAggiungiapp" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -129,11 +130,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.Testmetodi.testScrivi" />
+        <item itemvalue="JUnit.Testmetodi.testAggiungiapp" />
         <item itemvalue="JUnit.Testmetodi.testFile" />
+        <item itemvalue="JUnit.Testmetodi.testScrivi" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.Testmetodi.testRimuoviAgenda" />
-        <item itemvalue="JUnit.Testmetodi.testAggiuntaAgenda" />
       </list>
     </recent_temporary>
   </component>
@@ -167,7 +168,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682512680922</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="ccdsacda">
+      <created>1682519371457</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1682519371457</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

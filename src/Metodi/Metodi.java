@@ -4,13 +4,19 @@ import Moduli.Agenda;
 import Moduli.Appuntamento;
 
 import java.io.*;
+import java.text.DateFormat;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Scanner;
 import java.util.StringTokenizer;
+
+
 
 public class Metodi {
     public ArrayList<Agenda> agende;
@@ -80,7 +86,7 @@ public class Metodi {
         for(Agenda agenda : getAgende()) {
             if(n.equals(agenda.getNome())) {
                 try {
-                    FileReader fr = new FileReader("C:/Users/Admin/OneDrive/Desktop/appuntamenti.txt");
+                    FileReader fr = new FileReader("./appuntamenti.txt");
                     BufferedReader br = new BufferedReader(fr);
                     String stringRead = br.readLine();
 
@@ -88,15 +94,21 @@ public class Metodi {
                         StringTokenizer st = new StringTokenizer(stringRead, " ");
                         try {
                             String dataString = st.nextToken();
-                            DateTimeFormatter sdt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                            //DateFormat sdt = new SimpleDateFormat("dd/MM/yyyy");
+                            DateTimeFormatter sdt = DateTimeFormatter.ofPattern("dd/MM/yyyy"); //mi stampa la data al contrario yyyy/MM/dd
                             LocalDate dataapp = LocalDate.parse(dataString,sdt);
+                            //LocalDate dataapp = LocalDate.parse(st.nextToken());
+                            //String dataString = sdt.format(dataapp);
 
-                            String orario = st.nextToken();
+                            String orarioString = st.nextToken();
+                            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm");
+                            LocalTime orarioapp = LocalTime.parse(orarioString,dtf);
+
                             int durata = Integer.parseInt(st.nextToken());
                             String nome = st.nextToken();
                             String luogo = st.nextToken();
 
-                            agenda.aggiungiAppuntamento(dataapp, orario, durata, nome, luogo);
+                            agenda.aggiungiAppuntamento(dataapp, orarioapp, durata, nome, luogo);
                             System.out.println("Appuntamento aggiunto correttamente\n");
                         } catch (NumberFormatException nfe) {
                             System.out.println("Appuntamento non aggiunto\n");
@@ -117,11 +129,8 @@ public class Metodi {
     public void scriviAgendaFile() throws IOException {
         int i = 0;
         try {
-            FileWriter fw = new FileWriter("C:/Users/Admin/OneDrive/Desktop/agenda.txt", true);
+            FileWriter fw = new FileWriter("./agenda.txt");
             BufferedWriter bw = new BufferedWriter(fw);
-            if (bw == null) {
-                File agende = new File("C:/Users/Admin/OneDrive/Desktop/agenda.txt");
-            }
             for (Agenda agenda : this.agende) {
                 bw.newLine();
                 bw.write(agenda.getNome() + "\n");
@@ -141,7 +150,38 @@ public class Metodi {
             bw.flush();
             bw.close();
         }catch(FileNotFoundException fnf){
-            System.out.println("File non trovato");
+            System.out.println("File non trovato\n");
         }
+    }
+
+    public void aggiungiAppuntamento(String n, LocalDate data,LocalTime orario, int durata, String nome, String luogo){
+        //Scanner scnome = new Scanner(System.in);
+        //System.out.println("Inserire nome dell'agenda a cui si vuole aggiungere l'appuntamento:");
+        //String n = scnome.next();
+        boolean checkorario = false;
+        for(Agenda agenda : agende){
+            for(Appuntamento appuntamento : agenda.appuntamenti){
+                LocalTime orariofineapp = orario.plus(durata,ChronoUnit.MINUTES);
+                LocalTime orariofineappesist = appuntamento.getOrario().plus(appuntamento.getDurata(),ChronoUnit.MINUTES);
+                if(data.equals(appuntamento.getData())){
+                    if(orario.isAfter(appuntamento.getOrario()) && orariofineapp.isBefore(orariofineappesist)){
+                        System.out.println("Appuntamento si sovrappone a un altro\n");
+                    }
+                    else{
+                        checkorario = true;
+                    }
+                }
+
+            }
+        }
+        if(checkorario){
+            for(Agenda agenda : agende){
+                if(n.equals(agenda.getNome())){
+                    agenda.aggiungiAppuntamento(data,orario,durata,nome,luogo);
+                    System.out.println("Appuntamento aggiunto\n");
+                }
+            }
+        }
+
     }
 }

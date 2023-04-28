@@ -1,7 +1,10 @@
 package Moduli;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Agenda {
     public String nome;
@@ -21,13 +24,33 @@ public class Agenda {
         return appuntamenti;
     }
 
-    public void aggiungiAppuntamento(LocalDate data, String orario, int durata, String nome, String luogo){
+    public void aggiungiAppuntamento(LocalDate data, LocalTime orario, int durata, String nome, String luogo){
         Appuntamento appuntamento = new Appuntamento(data, orario, durata, nome, luogo);
         appuntamenti.add(appuntamento);
     }
 
     public int dimAppuntamenti(){
         return appuntamenti.size();
+    }
+
+    public Appuntamento inputAppuntamento(){
+        DateTimeFormatter sdt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm");
+
+        Scanner scdata = new Scanner(System.in);
+        String data = scdata.next();
+        LocalDate datapp = LocalDate.parse(data,sdt);
+        Scanner scorario = new Scanner(System.in);
+        String orario = scorario.next();
+        LocalTime orarioapp = LocalTime.parse(orario,dtf);
+        Scanner scdurata = new Scanner(System.in);
+        int durata = scdurata.nextInt();
+        Scanner scnome = new Scanner(System.in);
+        String nome = scnome.next();
+        Scanner scluogo = new Scanner(System.in);
+        String luogo = scluogo.next();
+        Appuntamento appuntamento = new Appuntamento(datapp,orarioapp,durata,nome,luogo);
+        return appuntamento;
     }
 
 }

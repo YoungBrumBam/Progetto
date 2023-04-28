@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.io.PrintStream;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -58,5 +60,15 @@ public class Testmetodi {
         metodi.appuntamentidaFile("Ufficio");
         metodi.aggiungiAgenda("Casa");
         metodi.scriviAgendaFile();
+    }
+    @Test
+    void testAggiungiapp(){
+        ArrayList<Agenda> agende = new ArrayList<>();
+        Metodi metodi = new Metodi(agende);
+        metodi.aggiungiAgenda("Ufficio");
+        metodi.aggiungiAgenda("Casa");
+        metodi.aggiungiAppuntamento("Ufficio",LocalDate.of(2023, 3, 3), LocalTime.of(18,30),20,"Gianni","Milano");
+        metodi.aggiungiAppuntamento("Ufficio",LocalDate.of(2023, 3, 3), LocalTime.of(18,30),20,"Gianni","Milano");
+        metodi.stampaAppuntamenti("Ufficio");
     }
 }
