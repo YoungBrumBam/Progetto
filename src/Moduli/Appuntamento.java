@@ -36,5 +36,22 @@ public class Appuntamento {
         return luogo;
     }
 
+    public void setData(LocalDate data) {
+        this.data = data;
+    }
 
+    public void setOrario(LocalTime orario) {
+        this.orario = orario;
+    }
+
+    public void setDurata(int durata) {
+        this.durata = durata;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    public void setLuogo(String luogo) {
+        this.luogo = luogo;
+    }
 }

@@ -68,7 +68,18 @@ public class Testmetodi {
         metodi.aggiungiAgenda("Ufficio");
         metodi.aggiungiAgenda("Casa");
         metodi.aggiungiAppuntamento("Ufficio",LocalDate.of(2023, 3, 3), LocalTime.of(18,30),20,"Gianni","Milano");
+        metodi.aggiungiAppuntamento("Ufficio",LocalDate.of(2023, 3, 3), LocalTime.of(18,20),20,"Gianni","Milano");
+        metodi.stampaAppuntamenti("Ufficio");
+    }
+    @Test
+    void testModifica(){
+        ArrayList<Agenda> agende = new ArrayList<>();
+        Metodi metodi = new Metodi(agende);
+        metodi.aggiungiAgenda("Ufficio");
+        metodi.aggiungiAgenda("Casa");
         metodi.aggiungiAppuntamento("Ufficio",LocalDate.of(2023, 3, 3), LocalTime.of(18,30),20,"Gianni","Milano");
+        metodi.aggiungiAppuntamento("Ufficio",LocalDate.of(2023, 3, 3), LocalTime.of(17,50),10,"Gianni","Milano");
+        metodi.modificaAppuntamento("Ufficio",LocalDate.of(2023, 3, 3), LocalTime.of(17,50),15,"Gianni","Milano");
         metodi.stampaAppuntamenti("Ufficio");
     }
 }
