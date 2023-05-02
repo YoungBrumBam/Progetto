@@ -69,6 +69,7 @@ public class Testmetodi {
         metodi.aggiungiAgenda("Casa");
         metodi.aggiungiAppuntamento("Ufficio",LocalDate.of(2023, 3, 3), LocalTime.of(18,30),20,"Gianni","Milano");
         metodi.aggiungiAppuntamento("Casa",LocalDate.of(2023, 3, 3), LocalTime.of(18,20),20,"Gianni","Milano");
+        metodi.aggiungiAppuntamento("Casa",LocalDate.of(2023, 3, 10), LocalTime.of(18,20),20,"Lorenzo","Napoli");
         metodi.stampaAppuntamenti("Ufficio");
         metodi.stampaAppuntamenti("Casa");
     }
@@ -78,9 +79,22 @@ public class Testmetodi {
         Metodi metodi = new Metodi(agende);
         metodi.aggiungiAgenda("Ufficio");
         metodi.aggiungiAgenda("Casa");
-        metodi.aggiungiAppuntamento("Ufficio",LocalDate.of(2023, 3, 3), LocalTime.of(18,30),20,"Gianni","Milano");
-        metodi.aggiungiAppuntamento("Ufficio",LocalDate.of(2023, 3, 3), LocalTime.of(17,50),10,"Gianni","Milano");
-        metodi.modificaAppuntamento("Ufficio",LocalDate.of(2023, 3, 3), LocalTime.of(17,50),15,"Gianni","Milano");
+        metodi.aggiungiAppuntamento("Ufficio",LocalDate.of(2023, 3, 10), LocalTime.of(18,30),20,"Mario","Londra");
+        metodi.aggiungiAppuntamento("Casa",LocalDate.of(2023, 3, 3), LocalTime.of(17,50),10,"Gianni","Milano");
+        metodi.modificaAppuntamento("Casa",LocalDate.of(2023, 3, 3), LocalTime.of(17,50),15,"Gianni","Milano");
         metodi.stampaAppuntamenti("Ufficio");
+        metodi.stampaAppuntamenti("Casa");
+    }
+    @Test
+    void teststampadatoNome(){
+        ArrayList<Agenda> agende = new ArrayList<>();
+        Metodi metodi = new Metodi(agende);
+        metodi.aggiungiAgenda("Ufficio");
+        metodi.aggiungiAgenda("Casa");
+        metodi.aggiungiAppuntamento("Ufficio",LocalDate.of(2023, 3, 10), LocalTime.of(18,30),20,"Mario","Londra");
+        metodi.aggiungiAppuntamento("Casa",LocalDate.of(2023, 3, 3), LocalTime.of(17,50),10,"Gianni","Milano");
+        metodi.modificaAppuntamento("Casa",LocalDate.of(2023, 3, 3), LocalTime.of(17,50),15,"Gianni","Milano");
+        metodi.aggiungiAppuntamento("Ufficio",LocalDate.of(2023, 3, 30), LocalTime.of(17,30),50,"Gianni","Instanbul");
+        metodi.stampaAppuntamentidanome("Gianni");
     }
 }

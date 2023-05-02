@@ -7,6 +7,7 @@
     <list default="true" id="144dde29-59e2-4268-879e-d031dfd72942" name="Changes" comment="ccdsacda">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Metodi/Metodi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Metodi/Metodi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Moduli/Agenda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Moduli/Agenda.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Test/Testmetodi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test/Testmetodi.java" afterDir="false" />
     </list>
     <list id="63d0cb2a-a14e-44eb-85bf-83f0dc7302bb" name="Changes by michelefilidoro" comment="" />
@@ -54,7 +55,7 @@
       <recent name="C:\Users\Admin\IdeaProjects\Progetto\src\Metodi" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.Testmetodi.testAggiungiapp">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Progetto" />
@@ -110,7 +111,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Testmetodi.testScrivi" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Testmetodi.teststampadatoNome" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Progetto" />
       <extension name="coverage">
         <pattern>
@@ -120,7 +121,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="Test" />
       <option name="MAIN_CLASS_NAME" value="Test.Testmetodi" />
-      <option name="METHOD_NAME" value="testScrivi" />
+      <option name="METHOD_NAME" value="teststampadatoNome" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -128,11 +129,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.Testmetodi.testAggiungiapp" />
-        <item itemvalue="JUnit.Testmetodi.testModifica" />
-        <item itemvalue="JUnit.Testmetodi.testFile" />
-        <item itemvalue="JUnit.Testmetodi.testScrivi" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.Testmetodi.teststampadatoNome" />
+        <item itemvalue="JUnit.Testmetodi.testModifica" />
+        <item itemvalue="JUnit.Testmetodi.testAggiungiapp" />
+        <item itemvalue="JUnit.Testmetodi.testFile" />
       </list>
     </recent_temporary>
   </component>
@@ -187,121 +188,19 @@
       <option name="project" value="LOCAL" />
       <updated>1682692208237</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="ccdsacda">
+      <created>1683018364480</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1683018364480</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ccdsacda" />
     <option name="LAST_COMMIT_MESSAGE" value="ccdsacda" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/Metodi/Metodi.java</url>
-          <line>157</line>
-          <properties class="Metodi.Metodi" method="verificaOrario">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="50" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/Metodi/Metodi.java</url>
-          <line>200</line>
-          <properties class="Metodi.Metodi" method="aggiungiAppuntamento">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="65" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Metodi/Metodi.java</url>
-          <line>159</line>
-          <option name="timeStamp" value="51" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Metodi/Metodi.java</url>
-          <line>160</line>
-          <option name="timeStamp" value="52" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Metodi/Metodi.java</url>
-          <line>161</line>
-          <option name="timeStamp" value="53" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Metodi/Metodi.java</url>
-          <line>162</line>
-          <option name="timeStamp" value="54" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Metodi/Metodi.java</url>
-          <line>165</line>
-          <option name="timeStamp" value="55" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Metodi/Metodi.java</url>
-          <line>166</line>
-          <option name="timeStamp" value="57" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Metodi/Metodi.java</url>
-          <line>172</line>
-          <option name="timeStamp" value="58" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Metodi/Metodi.java</url>
-          <line>183</line>
-          <option name="timeStamp" value="59" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Metodi/Metodi.java</url>
-          <line>188</line>
-          <option name="timeStamp" value="60" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Metodi/Metodi.java</url>
-          <line>189</line>
-          <option name="timeStamp" value="61" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Metodi/Metodi.java</url>
-          <line>190</line>
-          <option name="timeStamp" value="62" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Metodi/Metodi.java</url>
-          <line>193</line>
-          <option name="timeStamp" value="63" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Metodi/Metodi.java</url>
-          <line>199</line>
-          <option name="timeStamp" value="64" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Metodi/Metodi.java</url>
-          <line>207</line>
-          <option name="timeStamp" value="66" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Metodi/Metodi.java</url>
-          <line>208</line>
-          <option name="timeStamp" value="68" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Metodi/Metodi.java</url>
-          <line>209</line>
-          <option name="timeStamp" value="71" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Metodi/Metodi.java</url>
-          <line>213</line>
-          <option name="timeStamp" value="72" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

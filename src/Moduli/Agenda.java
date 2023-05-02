@@ -3,8 +3,7 @@ package Moduli;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 public class Agenda {
     public String nome;
@@ -24,15 +23,21 @@ public class Agenda {
         return appuntamenti;
     }
 
-    public void aggiungiAppuntamento(LocalDate data, LocalTime orario, int durata, String nome, String luogo){
-        Appuntamento appuntamento = new Appuntamento(data, orario, durata, nome, luogo);
-        appuntamenti.add(appuntamento);
+    public void aggiungiAppuntamento(Appuntamento appagg){
+        appuntamenti.add(appagg);
     }
 
     public int dimAppuntamenti(){
         return appuntamenti.size();
     }
 
+    public void stampaAppuntamento(Appuntamento appuntamento){
+        System.out.println("Data: " + appuntamento.getData() +
+                "\tOrario: " + appuntamento.getOrario() +
+                "\tDurata: " + appuntamento.getDurata() +
+                "\tNome: " + appuntamento.getNome() +
+                "\tLuogo: " + appuntamento.getLuogo() + "\n");
+    }
     public Appuntamento inputAppuntamento(){
         DateTimeFormatter sdt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm");

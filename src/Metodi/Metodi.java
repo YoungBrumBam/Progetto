@@ -11,10 +11,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Scanner;
-import java.util.StringTokenizer;
+import java.util.*;
 
 
 public class Metodi {
@@ -60,17 +57,26 @@ public class Metodi {
                             "\tNome: " + appuntamento.getNome() +
                             "\tLuogo: " + appuntamento.getLuogo() + "\n");
                     i++;
-
                 }
             }
         }
     }
+
+
 
     public void aggiungiAgenda(String n) {
         Agenda agenda = new Agenda(n);
         agende.add(agenda);
         if (n.equals(agenda.getNome())) {
             System.out.println("Agenda aggiunta correttamente\n");
+        }
+    }
+
+    public void aggiungiAppuntamentodanome(String n, Appuntamento appagg){
+        for(Agenda agenda : agende){
+            if(n.equals(agenda.getNome())){
+                agenda.aggiungiAppuntamento(appagg);
+            }
         }
     }
 
@@ -108,8 +114,8 @@ public class Metodi {
                             int durata = Integer.parseInt(st.nextToken());
                             String nome = st.nextToken();
                             String luogo = st.nextToken();
-
-                            agenda.aggiungiAppuntamento(dataapp, orarioapp, durata, nome, luogo);
+                            Appuntamento appuntamento = new Appuntamento(dataapp, orarioapp, durata, nome, luogo);
+                            agenda.aggiungiAppuntamento(appuntamento);
                             System.out.println("Appuntamento aggiunto correttamente\n");
                         } catch (NumberFormatException nfe) {
                             System.out.println("Appuntamento non aggiunto\n");
@@ -155,101 +161,62 @@ public class Metodi {
         }
     }
 
-    public int verificaOrario(LocalDate data, LocalTime orario, int durata) {
-        int check = 0;
-        for (Agenda agenda : agende) {
-            for (Appuntamento appuntamento : agenda.appuntamenti) {
-                if (!agenda.appuntamenti.isEmpty()) {
-                    if (data.equals(appuntamento.getData())) {
-                        LocalTime orariofineapp = orario.plus(durata, ChronoUnit.MINUTES);
-                        LocalTime orariofineappesist = appuntamento.getOrario().plus(appuntamento.getDurata(), ChronoUnit.MINUTES);
-                        if (!orario.equals(appuntamento.getOrario())) {
-                            if (orario.isAfter(orariofineappesist)) {
-                                check = 1;
-                            }
-                            else{
-                                check = 0;
-                            }
-                            if (orariofineapp.isBefore(appuntamento.getOrario())) {
-                                check = 1;
-                            }
-                            else{
-                                check = 0;
-                            }
-                        }
-                    }
-                }
+    public boolean verificaOrario(Appuntamento appcontr, Appuntamento appuntamento) {
+        if (appcontr.getData().equals(appuntamento.getData())) {
+            LocalTime orariofineapp = appcontr.getOrario().plus(appcontr.getDurata(), ChronoUnit.MINUTES);
+            LocalTime orariofineappesist = appuntamento.getOrario().plus(appuntamento.getDurata(), ChronoUnit.MINUTES);
+            if (appcontr.getOrario().equals(appuntamento.getOrario())) {
+                return false;
             }
+            return appcontr.getOrario().isAfter(orariofineappesist) && orariofineapp.isBefore(appuntamento.getOrario());
         }
-        return check;
+        return true;
     }
 
-    public int agendeVuote(){
-        int check = 0;
+    public boolean agendeVuote(){
         for(Agenda agenda : agende){
-            for(Appuntamento appuntamento : agenda.appuntamenti){
-                if(agenda.dimAppuntamenti() == 0){
-                    check = 0;
-                }
-                else{
-                    check = 1;
-                }
+            if(agenda.dimAppuntamenti() != 0){
+                return false;
             }
         }
-        return check;
+        return true;
     }
     public void aggiungiAppuntamento(String n, LocalDate data, LocalTime orario, int durata, String nome, String luogo) {
-        //Scanner scnome = new Scanner(System.in);
-        //System.out.println("Inserire nome dell'agenda a cui si vuole aggiungere l'appuntamento:");
-        //String n = scnome.next();
-        int checkorario = verificaOrario(data,orario,durata);
-
-        if(agendeVuote() == 1) {
-            for (Agenda agenda : agende) {
-                if (n.equals(agenda.getNome())) {
-                    if (checkorario == 1) {
-                        agenda.aggiungiAppuntamento(data, orario, durata, nome, luogo);
-                    }
-                    else {
-                        System.out.println("Appuntamento in conflitto con un altro\n");
-                    }
+        Appuntamento appagg = new Appuntamento(data,orario,durata,nome,luogo);
+        boolean checkorario = false;
+        if(agendeVuote()){
+            checkorario = true;
+        }else{
+            for(Agenda agenda : agende){
+                for(Appuntamento appuntamento : agenda.appuntamenti){
+                    checkorario = verificaOrario(appagg,appuntamento);
                 }
-
             }
+        }
+
+        if(checkorario){
+            aggiungiAppuntamentodanome(n,appagg);
         }
         else{
-            for(Agenda agenda : agende){
-                if(n.equals(agenda.getNome())){
-                    agenda.aggiungiAppuntamento(data, orario, durata, nome, luogo);
-                }
-            }
+            System.out.println("Appuntamento in conflitto\n");
         }
-        }
+    }
 
     public void modificaAppuntamento(String n,LocalDate data, LocalTime orario, int durata, String nome, String luogo){
+        Appuntamento appmod = new Appuntamento(data, orario, durata, nome, luogo);
         boolean checkorario = false;
-        Appuntamento appmod = new Appuntamento(data,orario,durata,nome,luogo);
-        for (Agenda agenda : agende) {
-            for (Appuntamento appuntamento : agenda.appuntamenti) {
-                if (!agenda.appuntamenti.isEmpty()) {
-                    if (!appmod.equals(appuntamento)) {
-                        LocalTime orariofineapp = orario.plus(durata, ChronoUnit.MINUTES);
-                        LocalTime orariofineappesist = appuntamento.getOrario().plus(appuntamento.getDurata(), ChronoUnit.MINUTES);
-                        if (orario.isAfter(appuntamento.getOrario()) || orariofineapp.isBefore(orariofineappesist)) {
-                            checkorario = true;
-                        } else {
-                            System.out.println("Appuntamento si sovrappone a un altro\n");
-                        }
-                    }
+        for(Agenda agenda : agende){
+            for(Appuntamento appuntamento : agenda.appuntamenti){
+                if(!appmod.getData().equals(appuntamento.getData()) || !appmod.getNome().equals(appuntamento.getNome()) || !appmod.getLuogo().equals(appuntamento.getLuogo())){
+                    checkorario = verificaOrario(appmod,appuntamento);
                 }
             }
         }
-        if (checkorario) {
-            for (Agenda agenda : agende) {
-                for(Appuntamento appuntamento : agenda.appuntamenti){
+        for (Agenda agenda : agende) {
+            for(Appuntamento appuntamento : agenda.appuntamenti){
+                if (checkorario) {
                     if (n.equals(agenda.getNome())) {
-                        //if(data.equals(appuntamento.getData()) && orario.equals(appuntamento.getOrario()) && durata==appuntamento.getDurata() && )
-                        if(appuntamento.equals(appmod)) {
+                        if (appmod.getData().equals(appuntamento.getData()) && appmod.getNome().equals(appuntamento.getNome()) && appmod.getLuogo().equals(appuntamento.getLuogo())) {
                             appuntamento.setData(data);
                             appuntamento.setDurata(durata);
                             appuntamento.setLuogo(luogo);
@@ -262,4 +229,17 @@ public class Metodi {
             }
         }
     }
+
+    public void stampaAppuntamentidanome(String n){
+        for(Agenda agenda : agende){
+            for(Appuntamento appuntamento : agenda.appuntamenti){
+                if(n.equals(appuntamento.getNome())){
+                    agenda.stampaAppuntamento(appuntamento);
+                }
+            }
+        }
+    }
+
 }
+
+
