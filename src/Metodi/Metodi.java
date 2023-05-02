@@ -164,13 +164,13 @@ public class Metodi {
                         LocalTime orariofineapp = orario.plus(durata, ChronoUnit.MINUTES);
                         LocalTime orariofineappesist = appuntamento.getOrario().plus(appuntamento.getDurata(), ChronoUnit.MINUTES);
                         if (!orario.equals(appuntamento.getOrario())) {
-                            if (orario.isAfter(appuntamento.getOrario()) && orariofineapp.isAfter(orariofineappesist)) {
+                            if (orario.isAfter(orariofineappesist)) {
                                 check = 1;
                             }
                             else{
                                 check = 0;
                             }
-                            if (orario.isBefore(appuntamento.getOrario()) && orariofineapp.isBefore(orariofineappesist)) {
+                            if (orariofineapp.isBefore(appuntamento.getOrario())) {
                                 check = 1;
                             }
                             else{
@@ -184,11 +184,11 @@ public class Metodi {
         return check;
     }
 
-    public int agendaVuota(){
+    public int agendeVuote(){
         int check = 0;
         for(Agenda agenda : agende){
             for(Appuntamento appuntamento : agenda.appuntamenti){
-                if(dimAppuntamenti(agenda.getNome()) == 0){
+                if(agenda.dimAppuntamenti() == 0){
                     check = 0;
                 }
                 else{
@@ -202,26 +202,29 @@ public class Metodi {
         //Scanner scnome = new Scanner(System.in);
         //System.out.println("Inserire nome dell'agenda a cui si vuole aggiungere l'appuntamento:");
         //String n = scnome.next();
+        int checkorario = verificaOrario(data,orario,durata);
 
-        for (Agenda agenda : agende) {
-            for(Appuntamento appuntamento : agenda.appuntamenti){
-                if(n.equals(appuntamento.getNome())){
-                    if(agenda.appuntamenti.isEmpty() && agendaVuota() == 0){
-                        agenda.aggiungiAppuntamento(data,orario,durata,nome,luogo);
-                        break;
+        if(agendeVuote() == 1) {
+            for (Agenda agenda : agende) {
+                if (n.equals(agenda.getNome())) {
+                    if (checkorario == 1) {
+                        agenda.aggiungiAppuntamento(data, orario, durata, nome, luogo);
                     }
-                    if(verificaOrario(data,orario,durata) == 1){
-                        agenda.aggiungiAppuntamento(data,orario,durata,nome,luogo);
-                        break;
-                    }
-                    else{
+                    else {
                         System.out.println("Appuntamento in conflitto con un altro\n");
                     }
                 }
 
             }
         }
-    }
+        else{
+            for(Agenda agenda : agende){
+                if(n.equals(agenda.getNome())){
+                    agenda.aggiungiAppuntamento(data, orario, durata, nome, luogo);
+                }
+            }
+        }
+        }
 
     public void modificaAppuntamento(String n,LocalDate data, LocalTime orario, int durata, String nome, String luogo){
         boolean checkorario = false;

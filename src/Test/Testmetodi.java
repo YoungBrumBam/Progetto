@@ -68,8 +68,9 @@ public class Testmetodi {
         metodi.aggiungiAgenda("Ufficio");
         metodi.aggiungiAgenda("Casa");
         metodi.aggiungiAppuntamento("Ufficio",LocalDate.of(2023, 3, 3), LocalTime.of(18,30),20,"Gianni","Milano");
-        metodi.aggiungiAppuntamento("Ufficio",LocalDate.of(2023, 3, 3), LocalTime.of(18,20),20,"Gianni","Milano");
+        metodi.aggiungiAppuntamento("Casa",LocalDate.of(2023, 3, 3), LocalTime.of(18,20),20,"Gianni","Milano");
         metodi.stampaAppuntamenti("Ufficio");
+        metodi.stampaAppuntamenti("Casa");
     }
     @Test
     void testModifica(){
