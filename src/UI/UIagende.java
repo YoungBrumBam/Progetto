@@ -1,10 +1,8 @@
 package UI;
 
 import Metodi.Metodi;
-import Moduli.Agenda;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UIagende {
@@ -91,5 +89,4 @@ public class UIagende {
 
         }while(scelta != 0);
     }
-
 }
