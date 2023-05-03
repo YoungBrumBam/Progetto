@@ -17,8 +17,8 @@ import java.util.*;
 public class Metodi {
     public ArrayList<Agenda> agende;
 
-    public Metodi(ArrayList<Agenda> agende) {
-        this.agende = agende;
+    public Metodi() {
+        this.agende = new ArrayList<>();
     }
 
     public ArrayList<Agenda> getAgende() {
@@ -240,6 +240,53 @@ public class Metodi {
         }
     }
 
+    public void stampaAppuntamentidadata(String dataString){
+        DateTimeFormatter sdt = DateTimeFormatter.ofPattern("dd/MM/yyyy"); //mi stampa la data al contrario yyyy/MM/dd
+        LocalDate dataapp = LocalDate.parse(dataString, sdt);
+        for(Agenda agenda : agende){
+            for(Appuntamento appuntamento : agenda.appuntamenti){
+                if(dataapp.equals(appuntamento.getData())){
+                    agenda.stampaAppuntamento(appuntamento);
+                }
+            }
+        }
+    }
+
+    public void ordina(String n){
+        ArrayList<Appuntamento> appuntamenticonf = new ArrayList<>();
+
+        for(Agenda agenda : agende){
+            if(n.equals(agenda.getNome())){
+                appuntamenticonf.addAll(agenda.appuntamenti);
+            }
+        }
+
+        for(Agenda agenda : agende){
+            if(n.equals(agenda.getNome())){
+                for(int i = 0; i < appuntamenticonf.size()-1; i++){
+                    int min = i;
+                    for(int j = i + 1; j < appuntamenticonf.size(); j++){
+                        if(appuntamenticonf.get(min).getData().isAfter( appuntamenticonf.get(j).getData())){
+                            min = j;
+                        }
+                    }
+                    if(min != i){
+                        Appuntamento temp = new Appuntamento(appuntamenticonf.get(min).getData(),appuntamenticonf.get(min).getOrario(),appuntamenticonf.get(min).getDurata(),appuntamenticonf.get(min).getNome(),appuntamenticonf.get(min).getLuogo());
+                        appuntamenticonf.set(min,appuntamenticonf.get(i));
+                        appuntamenticonf.set(i,temp);
+                    }
+                }
+            }
+        }
+        for (Appuntamento appuntamento : appuntamenticonf) {
+            System.out.println("Data: " + appuntamento.getData() +
+                    "\tOrario: " + appuntamento.getOrario() +
+                    "\tDurata: " + appuntamento.getOrario() +
+                    "\tNome: " + appuntamento.getNome() +
+                    "\tLuogo: " + appuntamento.getLuogo());
+        }
+
+    }
 }
 
 
