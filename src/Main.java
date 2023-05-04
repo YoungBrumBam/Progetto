@@ -1,13 +1,10 @@
 
 import Metodi.Metodi;
-import Moduli.Agenda;
 import UI.UIagende;
 import UI.UIappuntamenti;
 import UI.UImenu;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 
 public class Main {
     public static void main(String[] args) throws IOException {
