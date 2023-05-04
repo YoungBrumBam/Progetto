@@ -38,24 +38,6 @@ public class Agenda {
                 "\tNome: " + appuntamento.getNome() +
                 "\tLuogo: " + appuntamento.getLuogo() + "\n");
     }
-    public Appuntamento inputAppuntamento(){
-        DateTimeFormatter sdt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm");
 
-        Scanner scdata = new Scanner(System.in);
-        String data = scdata.next();
-        LocalDate datapp = LocalDate.parse(data,sdt);
-        Scanner scorario = new Scanner(System.in);
-        String orario = scorario.next();
-        LocalTime orarioapp = LocalTime.parse(orario,dtf);
-        Scanner scdurata = new Scanner(System.in);
-        int durata = scdurata.nextInt();
-        Scanner scnome = new Scanner(System.in);
-        String nome = scnome.next();
-        Scanner scluogo = new Scanner(System.in);
-        String luogo = scluogo.next();
-        Appuntamento appuntamento = new Appuntamento(datapp,orarioapp,durata,nome,luogo);
-        return appuntamento;
-    }
 
 }

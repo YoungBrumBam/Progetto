@@ -2,32 +2,30 @@ package UI;
 
 import Metodi.Metodi;
 
+import java.io.Console;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class UIagende {
+public class UIagenda {
+    UIappuntamento uIappuntamento;
     Metodi metodi;
-    UIappuntamenti uIappuntamenti;
-    public UIagende(Metodi metodi,UIappuntamenti uIappuntamenti) {
+
+    public UIagenda(Metodi metodi , UIappuntamento uIappuntamento) {
         this.metodi = metodi;
-        this.uIappuntamenti = uIappuntamenti;
+        this.uIappuntamento = uIappuntamento;
     }
 
-    public void menuAgenda(){
+    public void menu() {
+        Scanner sc = new Scanner(System.in);
         int scelta;
-        Scanner scscelta = new Scanner(System.in);
-        //Scanner sc = new Scanner(System.in);
-
         do {
-            if(metodi.dimAgende() == 0){
+            if (metodi.dimAgende() == 0) {
                 System.out.println("1) creare una nuova agenda vuota fornendone il nome\n" +
-                        "0)TORNA AL MENU PRINCIPALE");
-                scelta = scscelta.nextInt();
-                switch(scelta){
+                        "0)TORNA AL MENU PRINCIPALE\nScelta menu:");
+                scelta = sc.nextInt();
+                switch (scelta) {
                     case 1:
-                        System.out.println("Inserisci nome della nuova aggenda: ");
-                        String nomeagg = scscelta.next();
-                        metodi.aggiungiAgenda(nomeagg);
+                        metodi.aggiungiAgenda();
                         break;
                     case 0:
                         break;
@@ -35,7 +33,7 @@ public class UIagende {
                         scelta = 0;
                         break;
                 }
-            }else{
+            } else {
                 System.out.println("1) creare una nuova agenda vuota fornendone il nome\n" +
                         "2) cancellare un agenda anche se sono presenti appuntamenti\n" +
                         "3) creare una nuova agenda leggendo gli appuntamenti da file\n" +
@@ -44,26 +42,20 @@ public class UIagende {
                         "6) menu appuntamenti\n" +
                         "0) TORNA AL MENU PRINCIPALE\n" +
                         " scelta menu rubrica:");
-                scelta = scscelta.nextInt();
+                scelta = sc.nextInt();
 
                 switch (scelta) {
                     case 0:
                         break;
                     case 1:
-                        System.out.println("Inserisci nome della nuova aggenda: ");
-                        String nomeagg = scscelta.next();
-                        metodi.aggiungiAgenda(nomeagg);
+                        metodi.aggiungiAgenda();
                         break;
                     case 2:
-                        System.out.println("Inserisci nome della nuova aggenda: ");
-                        String nomecanc = scscelta.next();
-                        metodi.pulisciAgenda(nomecanc);
+                        metodi.pulisciAgenda(metodi.inputNomeag());
                         break;
                     case 3:
-                        System.out.println("Inserisci nome della nuova aggenda: ");
-                        String nomeagdafile = scscelta.next();
                         try {
-                            metodi.appuntamentidaFile(nomeagdafile);
+                            metodi.appuntamentidaFile();
                         } catch (IOException e) {
                             throw new RuntimeException(e);
                         }
@@ -79,14 +71,14 @@ public class UIagende {
                         metodi.stampaAgende();
                         break;
                     case 6:
-                        uIappuntamenti.menuAppuntamenti();
+                        uIappuntamento.menu();
                         break;
                     default:
                         scelta = 0;
                         break;
                 }
             }
-
-        }while(scelta != 0);
+            System.out.println("\n\n\n");
+        } while (scelta != 0);
     }
 }

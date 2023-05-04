@@ -14,6 +14,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.*;
 
 
+
 public class Metodi {
     public ArrayList<Agenda> agende;
 
@@ -46,7 +47,8 @@ public class Metodi {
         }
     }
 
-    public void stampaAppuntamenti(String n) {
+    public void stampaAppuntamenti() {
+        String n = inputNomeag();
         int i = 1;
         for (Agenda agenda : this.agende) {
             if (n.equals(agenda.getNome())) {
@@ -64,7 +66,8 @@ public class Metodi {
 
 
 
-    public void aggiungiAgenda(String n) {
+    public void aggiungiAgenda() {
+        String n = inputNomeag();
         Agenda agenda = new Agenda(n);
         agende.add(agenda);
         if (n.equals(agenda.getNome())) {
@@ -72,7 +75,7 @@ public class Metodi {
         }
     }
 
-    public void aggiungiAppuntamentodanome(String n, Appuntamento appagg){
+    public void aggiungiAppuntamentodanome(String n,Appuntamento appagg){
         for(Agenda agenda : agende){
             if(n.equals(agenda.getNome())){
                 agenda.aggiungiAppuntamento(appagg);
@@ -80,6 +83,31 @@ public class Metodi {
         }
     }
 
+    public Appuntamento inputAppuntamento(){
+        DateTimeFormatter sdt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm");
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Inserisci data:");
+        String data = sc.next();
+        LocalDate datapp = LocalDate.parse(data,sdt);
+        System.out.println("Inserisci orario:");
+        String orario = sc.next();
+        LocalTime orarioapp = LocalTime.parse(orario,dtf);
+        System.out.println("Inserisci durata:");
+        int durata = sc.nextInt();
+        System.out.println("Inserisci nome:");
+        String nome = sc.next();
+        System.out.println("Inserisci luogo:");
+        String luogo = sc.next();
+        Appuntamento appuntamento = new Appuntamento(datapp,orarioapp,durata,nome,luogo);
+        return appuntamento;
+    }
+    public String inputNomeag(){
+        System.out.println("Inserisci nome dell'agenda:");
+        Scanner sc = new Scanner(System.in);
+        return sc.next();
+    }
     public void pulisciAgenda(String n) {
         for (int i = 0; i < this.agende.size(); i++) {
             if (n.equals(agende.get(i).getNome())) {
@@ -89,7 +117,8 @@ public class Metodi {
         }
     }
 
-    public void appuntamentidaFile(String n) throws IOException {
+    public void appuntamentidaFile() throws IOException {
+        String n = inputNomeag();
         for (Agenda agenda : getAgende()) {
             if (n.equals(agenda.getNome())) {
                 try {
@@ -181,8 +210,9 @@ public class Metodi {
         }
         return true;
     }
-    public void aggiungiAppuntamento(String n, LocalDate data, LocalTime orario, int durata, String nome, String luogo) {
-        Appuntamento appagg = new Appuntamento(data,orario,durata,nome,luogo);
+    public void aggiungiAppuntamento() {
+        String n = inputNomeag();
+        Appuntamento appagg = inputAppuntamento();
         boolean checkorario = false;
         if(agendeVuote()){
             checkorario = true;
@@ -202,8 +232,9 @@ public class Metodi {
         }
     }
 
-    public void modificaAppuntamento(String n,LocalDate data, LocalTime orario, int durata, String nome, String luogo){
-        Appuntamento appmod = new Appuntamento(data, orario, durata, nome, luogo);
+    public void modificaAppuntamento(){
+        String n = inputNomeag();
+        Appuntamento appmod = inputAppuntamento();
         boolean checkorario = false;
         for(Agenda agenda : agende){
             for(Appuntamento appuntamento : agenda.appuntamenti){
@@ -217,11 +248,11 @@ public class Metodi {
                 if (checkorario) {
                     if (n.equals(agenda.getNome())) {
                         if (appmod.getData().equals(appuntamento.getData()) && appmod.getNome().equals(appuntamento.getNome()) && appmod.getLuogo().equals(appuntamento.getLuogo())) {
-                            appuntamento.setData(data);
-                            appuntamento.setDurata(durata);
-                            appuntamento.setLuogo(luogo);
-                            appuntamento.setOrario(orario);
-                            appuntamento.setNome(nome);
+                            appuntamento.setData(appmod.getData());
+                            appuntamento.setDurata(appmod.getDurata());
+                            appuntamento.setLuogo(appmod.getLuogo());
+                            appuntamento.setOrario(appmod.getOrario());
+                            appuntamento.setNome(appmod.getNome());
                             System.out.println("Appuntamento modificato\n");
                         }
                     }
@@ -230,7 +261,9 @@ public class Metodi {
         }
     }
 
-    public void stampaAppuntamentidanome(String n){
+    public void stampaAppuntamentidanome(){
+        Scanner sc = new Scanner(System.in);
+        String n = sc.next();
         for(Agenda agenda : agende){
             for(Appuntamento appuntamento : agenda.appuntamenti){
                 if(n.equals(appuntamento.getNome())){
@@ -240,7 +273,10 @@ public class Metodi {
         }
     }
 
-    public void stampaAppuntamentidadata(String dataString){
+    public void stampaAppuntamentidadata(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Inserire data:");
+        String dataString = sc.next("dd/MM/yyyy");
         DateTimeFormatter sdt = DateTimeFormatter.ofPattern("dd/MM/yyyy"); //mi stampa la data al contrario yyyy/MM/dd
         LocalDate dataapp = LocalDate.parse(dataString, sdt);
         for(Agenda agenda : agende){
@@ -252,7 +288,8 @@ public class Metodi {
         }
     }
 
-    public void ordina(String n){
+    public void ordina(){
+        String n = inputNomeag();
         ArrayList<Appuntamento> appuntamenticonf = new ArrayList<>();
 
         for(Agenda agenda : agende){
@@ -285,7 +322,6 @@ public class Metodi {
                     "\tNome: " + appuntamento.getNome() +
                     "\tLuogo: " + appuntamento.getLuogo());
         }
-
     }
 }
 

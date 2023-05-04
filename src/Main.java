@@ -1,7 +1,7 @@
 
 import Metodi.Metodi;
-import UI.UIagende;
-import UI.UIappuntamenti;
+import UI.UIagenda;
+import UI.UIappuntamento;
 import UI.UImenu;
 
 import java.io.IOException;
@@ -9,9 +9,9 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) throws IOException {
         Metodi metodi = new Metodi();
-        UIappuntamenti uIappuntamenti = new UIappuntamenti(metodi);
-        UIagende uIagende = new UIagende(metodi,uIappuntamenti);
-        UImenu uImenu = new UImenu(uIagende);
+        UIappuntamento uIappuntamento = new UIappuntamento(metodi);
+        UIagenda uIagenda = new UIagenda(metodi,uIappuntamento);
+        UImenu uImenu = new UImenu(uIagenda);
         uImenu.menu();
     }
 }
