@@ -28,7 +28,7 @@ public class Testmetodi {
         Metodi metodi = new Metodi();
         metodi.aggiungiAgenda();//"Ufficio");
         assertEquals(1,metodi.dimAgende());
-        metodi.pulisciAgenda("Ufficio");
+        metodi.pulisciAgenda();//"Ufficio");
         assertEquals(0,metodi.dimAgende());
     }
 

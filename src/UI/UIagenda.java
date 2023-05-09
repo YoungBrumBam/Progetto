@@ -51,7 +51,7 @@ public class UIagenda {
                         metodi.aggiungiAgenda();
                         break;
                     case 2:
-                        metodi.pulisciAgenda(metodi.inputNomeag());
+                        metodi.pulisciAgenda();
                         break;
                     case 3:
                         try {

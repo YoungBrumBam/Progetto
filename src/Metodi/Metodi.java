@@ -108,10 +108,12 @@ public class Metodi {
         Scanner sc = new Scanner(System.in);
         return sc.next();
     }
-    public void pulisciAgenda(String n) {
-        for (int i = 0; i < this.agende.size(); i++) {
-            if (n.equals(agende.get(i).getNome())) {
-                Agenda agenda = this.agende.get(i);
+    public void pulisciAgenda() {
+        String n = inputNomeag();
+        Iterator<Agenda> iagende = agende.iterator();
+        while(iagende.hasNext()) {
+            Agenda agenda = iagende.next();
+            if (n.equals(agenda.getNome())) {
                 this.agende.remove(agenda);
             }
         }
@@ -119,6 +121,8 @@ public class Metodi {
 
     public void appuntamentidaFile() throws IOException {
         String n = inputNomeag();
+        Agenda ag = new Agenda(n);
+        agende.add(ag);
         for (Agenda agenda : getAgende()) {
             if (n.equals(agenda.getNome())) {
                 try {
@@ -155,9 +159,6 @@ public class Metodi {
                 } catch (FileNotFoundException fnf) {
                     System.out.println("File non aperto correttamente\n");
                 }
-            } else {
-                System.out.println("Agenda non esistente\n");
-
             }
         }
     }
@@ -318,7 +319,7 @@ public class Metodi {
         for (Appuntamento appuntamento : appuntamenticonf) {
             System.out.println("Data: " + appuntamento.getData() +
                     "\tOrario: " + appuntamento.getOrario() +
-                    "\tDurata: " + appuntamento.getOrario() +
+                    "\tDurata: " + appuntamento.getDurata() +
                     "\tNome: " + appuntamento.getNome() +
                     "\tLuogo: " + appuntamento.getLuogo());
         }
